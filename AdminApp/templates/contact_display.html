@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{%  extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bigmart-FAQ Details</title>
+</head>
+<body>
+<div class="col-lg-12 grid-margin stretch-card" style="margin-top:30px;">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Contact FAQ Details</h4>
+<!--                  <p class="card-description">-->
+<!--                    Add class <code>.table-striped</code>-->
+<!--                  </p>-->
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            Name
+                          </th>
+                          <th>
+                            Email
+                          </th>
+                          <th>
+                            Phone
+                          </th>
+                          <th>
+                            Subject
+                          </th>
+                          <th>
+                            Message
+                          </th>
+<!--                          <th>-->
+<!--                            Product Image-->
+<!--                          </th>-->
+                          <th>
+                            Action
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for d in contact_data %}
+                        <tr>
+                          <td>{{d.name}}</td>
+                          <td>{{d.email}}</td>
+                          <td>{{d.phone}}</td>
+                          <td>{{d.subject}}</td>
+                          <td>{{d.message}}</td>
+<!--                          <td>-->
+<!--                            <img src="{{d.pro_image.url}}" style="width:60px;height:50px;">-->
+<!--                          </td>-->
+                          <td>
+                            <a href="{% url 'contact_delete' del_contact_ID=d.id %}">
+                              <button class="btn btn-outline-danger">Delete</button>
+                            </a>
+                          </td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+</body>
+</html>
+{% endblock %}
